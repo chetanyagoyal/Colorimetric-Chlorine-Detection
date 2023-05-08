@@ -11,7 +11,7 @@ This repo contains all my progress updates and code for my research project - co
   
 ## Code 
 ### powder dispenser automation
-```
+```c
 #include <Servo.h>
 #define LOAD 1
 #define UNLOAD 2
@@ -62,7 +62,7 @@ void loop() {
 }
 ```
 ### LED/LDR circuit code
-```
+```c
 const int greenPin = 10; 
 const int bluePin = 9;
 const int redPin = 11; 
