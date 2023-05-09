@@ -21,6 +21,12 @@ This repo contains all my progress updates and code for my research project - co
 #define LOAD 1
 #define UNLOAD 2
 
+// angle and load time declarations for modularity of code
+const int load_servo_rest = 70;
+const int unload_servo_rest = 90;
+const int load_servo = 90;
+const int unload_servo = 0;
+const int load_time = 5000;
 // to read the incoming data for the user, used to ascertain 
 // the function required  
 char incomingByte = 0;
@@ -50,26 +56,27 @@ void loop() {
         // the load motor's rest angle is 70 and not 0 due to the 
         // servo motor's configuration on the container body
         case '1': // loading code
-          s_load.write(90);
-          delay(5000);
-          s_load.write(70);          
+          s_load.write(load_servo);
+          delay(load_time);
+          s_load.write(load_servo_rest);          
           flag = 0;
           break;
         case '2': // unloading code
-          s_unload.write(0);
-          delay(5000);
-          s_unload.write(90);
+          s_unload.write(unload_servo);
+          delay(load_time);
+          s_unload.write(unload_servo_rest);
           flag = 1;
           break;
         default: // default rest case
           if (flag == 0) {
-            s_load.write(70);
+            s_load.write(load_servo_rest);
           } else if (flag == 1) {
-            s_unload.write(90);
+            s_unload.write(unload_servo_rest);
           }
       }
     }
 }
+
 ```
 ### LED/LDR circuit code
 ```c
