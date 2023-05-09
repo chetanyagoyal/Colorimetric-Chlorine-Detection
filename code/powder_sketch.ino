@@ -3,7 +3,12 @@
 #define LOAD 1
 #define UNLOAD 2
 
+// to read the incoming data for the user, used to ascertain 
+// the function required  
 char incomingByte = 0;
+
+// used to detect what the previous operation carried out was
+// so as to bring the relevant blade back to the closed position
 int flag = 0;
 
 Servo s_load;
@@ -19,10 +24,13 @@ void setup() { //attach servos and set baud rate for arduino
 }
 
 void loop() {
-  while (1)
+  while (1) // to prevent servo resets
+
     if (Serial.available() > 0) {
       incomingByte = Serial.read();
       switch (incomingByte) {
+        // the load motor's rest angle is 70 and not 0 due to the 
+        // servo motor's configuration on the container body
         case '1': // loading code
           s_load.write(90);
           delay(5000);
