@@ -10,7 +10,8 @@ This repo contains all my progress updates and code for my research project - co
   1. https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9639569
  
 ## Block level representation
-  
+  ![image](https://user-images.githubusercontent.com/95761876/237014930-87f8920d-980f-4b65-a1cb-f98806e12c0d.png)
+
 ## Code 
 ### powder dispenser automation
 ```c
